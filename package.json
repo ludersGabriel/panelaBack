@@ -1,0 +1,63 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "engines": {
+    "node": "14.x"
+  },
+  "scripts": {
+    "build": "babel src --extensions \".js,.ts\" --out-dir build --copy-files --no-copy-ignored",
+    "start": "node build/server.js",
+    "dev": "tsnd -r tsconfig-paths/register --respawn --transpile-only --ignore-watch node_modules --no-notify src/server.ts",
+    "test": "yarn test:setup && jest --verbose --detectOpenHandles --maxWorkers=1",
+    "db:migrate": "yarn prisma migrate dev && yarn prisma generate",
+    "db:reset": "yarn prisma migrate reset",
+    "db:seed": "yarn prisma db seed --preview-feature",
+    "test:setup": "yarn db:reset",
+    "dev:init": "yarn dev:down && yarn dev:up",
+    "dev:up": "docker-compose up -d --remove-orphans",
+    "dev:down": "docker-compose down",
+    "deploy": "yarn prisma migrate deploy && yarn prisma generate"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.14.5",
+    "@babel/core": "^7.14.6",
+    "@babel/node": "^7.14.7",
+    "@babel/plugin-proposal-class-properties": "^7.14.5",
+    "@babel/plugin-proposal-decorators": "^7.14.5",
+    "@babel/preset-env": "^7.14.7",
+    "@babel/preset-typescript": "^7.14.5",
+    "@types/bcryptjs": "^2.4.2",
+    "@types/colors": "^1.2.1",
+    "@types/graphql": "^14.5.0",
+    "@types/jest": "^26.0.24",
+    "@types/jsonwebtoken": "^8.5.4",
+    "@typescript-eslint/eslint-plugin": "^4.28.2",
+    "@typescript-eslint/parser": "^4.28.2",
+    "babel-plugin-module-resolver": "^4.1.0",
+    "babel-plugin-transform-typescript-metadata": "^0.3.2",
+    "colors": "^1.4.0",
+    "eslint": "^7.12.1",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "jest": "^27.0.6",
+    "prisma": "2.27.0",
+    "ts-jest": "^27.0.3",
+    "ts-node-dev": "^1.1.8",
+    "tsconfig-paths": "^3.10.1",
+    "typescript": "^4.3.5"
+  },
+  "dependencies": {
+    "@prisma/client": "2.27.0",
+    "apollo-server": "^3.0.2",
+    "bcryptjs": "^2.4.3",
+    "class-validator": "^0.13.1",
+    "graphql": "^15.5.1",
+    "jsonwebtoken": "^8.5.1",
+    "reflect-metadata": "^0.1.13",
+    "type-graphql": "^1.1.1"
+  }
+}

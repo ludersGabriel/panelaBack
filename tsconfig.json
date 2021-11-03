@@ -1,0 +1,46 @@
+{
+  "compilerOptions": {
+    "target": "es2018",
+    "module": "commonjs",
+    "lib": [
+      "es6",
+      "es2018",
+      "esnext.asynciterable"
+    ],
+    "allowJs": true,
+    "outDir": "./build",
+    "rootDir": "./src",
+    "removeComments": true,
+    "strict": true,
+    "noImplicitAny": true,
+    "typeRoots": [
+      "./node_modules/@types",
+      "./src/@types"
+    ],
+    "strictPropertyInitialization": false,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "baseUrl": ".",
+    "paths": {
+      "@controllers/*": [
+        "./src/controllers/*"
+      ],
+      "@utils/*":[
+        "./src/utils/*"
+      ],
+      "@components/*": [
+        "./src/components/*"
+      ],
+      "@src/*": [
+        "./src/*"
+      ]
+    }
+  },
+  "include": [
+    "src/**/*"
+  ]
+}

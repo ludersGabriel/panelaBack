@@ -1,0 +1,6 @@
+git subtree push --prefix backend heroku master
+heroku login 
+heroku logs -a backend-to-do --tail
+
+// removing all docker containers
+docker container stop $(docker container ls -aq) && docker system prune -af --volumes
