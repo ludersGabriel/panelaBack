@@ -3,12 +3,12 @@ services:
   db:
     image: postgres
     restart: always
-    container_name: panela-bd
+    container_name: todo-bd
     ports:
       - "5432:5432"
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: panela-bd
+      POSTGRES_DB: todo
     volumes:
-      - ./pgdata:/var/lib/postgresql/data
+      - ./pgdata:/var/lib/postgresql/data:z

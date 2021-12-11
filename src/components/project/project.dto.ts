@@ -5,42 +5,42 @@ import { Task } from '@components/task/task.dto'
 @ObjectType()
 export class Project {
   @Field(type => ID)
-  id: string
+    id: string
 
   @Field(type => String)
-  name: string
+    name: string
 
   @Field(type => ID)
-  userId: String
+    userId: String
 
   @Field(type => String, { nullable: true })
-  description?: string | null
+    description?: string | null
 
   @Field(type => [Task], { nullable: true })
-  tasks?: Task[]
+    tasks?: Task[]
 }
 
 @InputType()
 export class ProjectCreateInput {
   @Field(type => String)
   @MinLength(3)
-  name: string
+    name: string
 
   @Field(type => String, { nullable: true })
   @MaxLength(50)
-  description?: string | null
+    description?: string | null
 }
 
 @InputType()
 export class ProjectUpdateInput {
   @Field(type => ID)
-  id: string
+    id: string
 
   @Field(type => String, { nullable: true })
   @MinLength(3)
-  name?: string
+    name?: string
 
   @Field(type => String, { nullable: true })
   @MaxLength(50)
-  description?: string | null
+    description?: string | null
 }

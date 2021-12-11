@@ -7,81 +7,81 @@ import { SubTask } from '@components/subTask/subTask.dto'
 @ObjectType()
 export class PrivateUser {
   @Field(type => ID)
-  id: string
+    id: string
 
   @Field(type => String)
-  email: string
+    email: string
 
   @Field(type => String)
-  name: string
+    name: string
 
   @Field(type => Number)
-  count: number
+    count: number
 
   @Field(type => String)
-  role: string
+    role: string
 
   @Field(type => String)
-  password: string
+    password: string
 }
 
 @ObjectType()
 export class User {
   @Field(type => ID)
-  id: string
+    id: string
 
   @Field(type => String)
-  email: string
+    email: string
 
   @Field(type => String)
-  name: string
+    name: string
 
   @Field(type => Number)
-  count: number
+    count: number
 
   @Field(type => String)
-  role: string
+    role: string
 
   @Field(type => [Task], { nullable: true })
-  tasks?: Task[]
+    tasks?: Task[]
 
   @Field(type => [Project], { nullable: true })
-  projects?: Project[]
+    projects?: Project[]
 
   @Field(type => [SubTask], { nullable: true })
-  subTasks?: SubTask[]
+    subTasks?: SubTask[]
 }
 
 @InputType()
 export class UserRegisterInput {
   @Field(type => String)
   @IsEmail()
-  email: string
+    email: string
 
   @Field(type => String)
   @MinLength(8)
-  password: string
+    password: string
 
   @Field(type => String)
-  name: string
+    name: string
 }
 
 @InputType()
 export class UserUpdateInput {
   @Field(type => ID)
-  id: string
+    id: string
 
   @Field(type => String, { nullable: true })
-  name?: string
+    name?: string
 
   @Field(type => String, { nullable: true })
   @IsEmail()
-  email?: string
+    email?: string
 
   @Field(type => String, { nullable: true })
   @MinLength(8)
-  password?: string
+    password?: string
 
   @Field(type => Number, { nullable: true })
-  count?: number
+    count?: number
 }
